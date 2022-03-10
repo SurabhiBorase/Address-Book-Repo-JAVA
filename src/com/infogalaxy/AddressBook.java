@@ -3,8 +3,9 @@ package com.infogalaxy;
 import java.util.Scanner;
 
 public class AddressBook {
-    Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
     Contact contact = new Contact();
+
     //UC-1 Add Contact to Address Book...
     public void addContact() {
         System.out.println("Enter First Name :=");
@@ -47,16 +48,45 @@ public class AddressBook {
             contact.setPhoneno(sc.next());
             System.out.println("Enter Email ID :=");
             contact.setEmail(sc.next());
-        }
-        else {
+        } else {
             System.out.println("Contact not Found");
         }
     }
+    //UC-4 Delete the Contact to Address Book
+    public void deleteContact() {
+        System.out.println("Enter the First Name to Delete the Contact");
+        String name = sc.next();
+        if (name.equalsIgnoreCase(contact.getFirstname())) {
+            System.out.println("Contact is Found");
+            contact = null;
+        } else {
+            System.out.println("Contact Not Found");
+        }
+    }
+
     public static void main(String[] args) {
         AddressBook addressBook = new AddressBook();
-        addressBook.addContact();
-        addressBook.displayContact();
-        addressBook.editContact();
-        addressBook.displayContact();
+        int choice;
+        do {
+            System.out.println("**** ADDRESS BOOK MANAGER ****");
+            System.out.println("1.ADD NEW CONTACT \n2.EDIT CONTACT \n3.DISPLAY CONTACT \n4.DELETE CONTACT \n5.EXIT");
+            System.out.println("Enter Your Choice :");
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    addressBook.addContact();
+                    break;
+                case 2:
+                    addressBook.editContact();
+                    break;
+                case 3:
+                    addressBook.displayContact();
+                    break;
+                case 4:
+                    addressBook.deleteContact();
+                    break;
+            }
+        }while(choice != 5);
     }
 }
