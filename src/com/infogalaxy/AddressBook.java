@@ -53,16 +53,16 @@ public class AddressBook {
         }
     }
     //UC-4 Delete the Contact to Address Book
-    public void deleteContact() {
-        System.out.println("Enter the First Name to Delete the Contact");
-        String name = sc.next();
-        if (name.equalsIgnoreCase(contact.getFirstname())) {
-            System.out.println("Contact is Found");
-            contact = null;
-        } else {
-            System.out.println("Contact Not Found");
-        }
-    }
+//    public void deleteContact() {
+//        System.out.println("Enter the First Name to Delete the Contact");
+//        String name = sc.next();
+//        if (name.equalsIgnoreCase(contact.getFirstname())) {
+//            System.out.println("Contact is Found");
+//            contact = null;
+//        } else {
+//            System.out.println("Contact Not Found");
+//        }
+//    }
 
     public static void main(String[] args) {
         AddressBook addressBook = new AddressBook();
@@ -84,7 +84,7 @@ public class AddressBook {
                     addressBook.displayContact();
                     break;
                 case 4:
-                    addressBook.deleteContact();
+                    //addressBook.deleteContact();
                     break;
             }
         }while(choice != 5);
